@@ -1,0 +1,9 @@
+#practiceRoot{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:24px}
+#practiceRoot section{min-width:0}#practiceRoot h3{margin:0 0 .6rem}
+#practiceRoot summary{cursor:pointer}#practiceRoot label,#practiceRoot summary{font-size:.88rem}
+#practiceRoot form,#practiceRoot .practice-queue,#practiceRoot .practice-tasks{display:grid;align-content:start;justify-items:start;gap:.65rem}
+#practiceRoot form{margin:.8rem 0;grid-template-columns:repeat(2,minmax(0,1fr))}
+#practiceRoot form label,#practiceRoot .practice-queue label{width:100%}
+#practiceRoot form input,#practiceRoot select,#practiceRoot textarea{display:block;margin-top:.2rem;border:1px solid #cec9bf;border-radius:.45rem;padding:.35rem .55rem;width:100%;font:inherit;background:#fffdf9;color:inherit}
+#practiceRoot .practice-tasks{margin-top:.75rem}#practiceRoot input[type=checkbox]{margin:0 .5rem 0 0;accent-color:#76533d}
+#practiceRoot .practice-queue textarea{min-height:4.5rem}#practiceRoot p{margin:0;font-size:.9rem}

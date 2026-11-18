@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>听力工作台 · Onda</title>
+  <link rel="stylesheet" href="workspace.css"><link rel="stylesheet" href="training.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="./" aria-label="Onda 首页"><span class="soundmark" aria-hidden="true">∿</span>Onda</a>
+  <nav aria-label="主导航"><a href="workspace.html" aria-current="page">听力工作台</a><a href="/#resources">素材库</a><a href="/#review">短语复习</a></nav>
+</header>
+<main>
+  <div class="pagehead"><div><p class="eyebrow" lang="it">Laboratorio di ascolto</p><h1>听力工作台</h1></div><button id="choose" type="button">选择课程 <span aria-hidden="true">⌄</span></button></div>
+  <dialog id="picker" aria-labelledby="picker-title">
+    <div class="spread"><h2 id="picker-title">选择听力课程</h2><button id="dismiss" aria-label="关闭课程列表">关闭</button></div>
+    <input id="courseSearch" type="search" aria-label="搜索课程" placeholder="搜索课程名、主题或级别">
+    <div id="courseList"></div>
+  </dialog>
+  <section class="recording" aria-labelledby="title">
+    <div class="cover" aria-hidden="true"></div>
+    <div class="recording-info"><small id="meta"></small><h2 lang="it" id="title"></h2><p id="subtitle"></p><a id="source" target="_blank" rel="noopener">原站练习 ↗</a></div>
+  </section>
+  <div class="desk">
+    <section class="audio-card" aria-labelledby="audio-title">
+      <div class="spread"><h2 id="audio-title">原声播放器</h2><output id="clock">0:00</output></div>
+      <label id="tracklabel">本课音轨 <select id="track"></select></label>
+      <iframe allow="autoplay" id="player" title="Online Italian Club 原声播放器"></iframe>
+      <fieldset id="transport" disabled>
+        <legend>精听控制</legend>
+        <button id="toggle">播放 / 暂停</button><button id="back">退回 5 秒</button>
+        <button id="markA">标起点 A</button><button id="markB">标终点 B</button>
+        <label>重复 <select id="reps"><option value="3">3 遍</option><option value="1">1 遍</option><option value="5">5 遍</option><option value="0">无限</option></select></label>
+        <label>间隔 <select id="gap"><option value="2">2 秒</option><option value="0">无</option><option value="5">5 秒</option></select></label>
+        <button id="loop">循环片段</button><button id="storeClip">收藏片段</button><button id="whole">无字幕整段重听</button>
+      </fieldset>
+      <output id="range"></output><output id="notice" aria-live="polite"></output><div id="clips"></div>
+    </section>
+    <section class="paper" aria-label="学习笔记">
+      <nav class="tabs" aria-label="笔记视图"><button data-pane="train" aria-pressed="true">精听练习</button><button data-pane="reader" aria-pressed="false">原文与导师</button><button data-pane="practice" aria-pressed="false">计划与复习</button></nav>
+      <div id="train" class="pane"><div id="trainingRoot"></div>
+        <details id="notebook"><summary>自由笔记与旧草稿</summary><label for="gist">大意草稿</label><textarea id="gist"></textarea><label for="draft">听写草稿</label><textarea id="draft"></textarea><label for="cause">自己感觉最难的地方</label><select id="cause"><option value="">尚未判断</option><option>音素混淆</option><option>词汇切分</option><option>词汇提取</option><option>句法处理</option><option>语义整合</option><option>注意或记忆</option></select></details>
+      </div>
+      <div id="reader" class="pane" hidden><details id="materials"><summary>查看这篇的原文与练习</summary><div id="figures"></div><div id="lines" lang="it"></div><div id="solutions"></div></details>
+        <section id="tutor"><h3>随文问导师</h3><blockquote id="quote"></blockquote><form id="tutorForm"><textarea id="question" aria-label="向导师提问" required maxlength="1200" placeholder="这里为什么用这个词？"></textarea><button id="ask">向 ChatGPT 提问 ↗</button></form><output id="reply" aria-live="polite"></output></section>
+      </div>
+      <div id="practice" class="pane" hidden><div id="practiceRoot"></div><section id="results"><h3>练习记录</h3><p id="scores"></p></section></div>
+    </section>
+  </div>
+</main>
+<script async id="widgetApi" src="https://w.soundcloud.com/player/api.js"></script>
+<script type="module" src="app.js"></script>
+</body></html>
